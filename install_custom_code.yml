@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  tasks:
+     - name: update packages
+       apt: update_cache=yes
+
+     
+     # create workspace folder for pi timer code
+     - name: create workspace
+       file: path=/home/pi/workspace owner=pi state=directory mode=0755
+     
+     - name: install git
+       apt: name=git state=latest
+       
+     - name: clone ada fruit LED
+       git: repo=https://github.com/javaplus/pi_motor_api.git dest=/home/pi/workspace/pi_motor_api
+       
+     - name: update rc.local to auto run program
+       lineinfile: path=/etc/rc.local insertbefore='exit 0' line='(sleep 20 \nsudo python /home/pi/workspace/pi_motor_api/motor_api.py) &'

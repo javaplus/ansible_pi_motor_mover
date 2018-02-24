@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  tasks:
+     - name: update packates 
+       apt: update_cache=yes
+
+     - name: Install Serial
+       apt: name=python-serial state=latest
+
+     - name: Install pip
+       apt: name=python-pip state=latest
+
+     - name: Install Flask
+       pip: name=flask
+
+     - name: Install Flask Cors
+       pip: name=flask-cors
+  
+
+       
+     
