@@ -1,6 +1,6 @@
 
 #Setting up SSH keys
-
+```
 barry@DESKTOP-IEEFA0B:~$ ssh-keygen -t rsa -b 4096 -C "btarlton@gmail.com"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/barry/.ssh/id_rsa):
@@ -24,4 +24,6 @@ The key's randomart image is:
 |      .o.+. ..=..|
 +----[SHA256]-----+
 barry@DESKTOP-IEEFA0B:~$
+
+```
 
